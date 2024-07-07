@@ -60,7 +60,7 @@ const Login = () => {
       <Navbar />
 
       <div className="flex items-center justify-center mt-28">
-        <div className=" lg:w-96 border rounded  px-7 py-10 shadow-2xl shadow-stone-600">
+        <div className="w-80 lg:w-96 border rounded  px-7 py-10 shadow-2xl shadow-stone-600">
           <form onSubmit={handleLogin}>
             <h4 className="text-2xl mb-7 text-primary">Login</h4>
             <input
