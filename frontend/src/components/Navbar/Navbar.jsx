@@ -25,7 +25,8 @@ const Navbar = ({ userInfo, onSearchNote, handleClearSearch }) => {
   return (
     <div className="bg-slate-600 flex items-center justify-between px-6 py-2 gap-3 shadow-2xl">
       <h2 className="text-sm lg:text-xl font-medium text-sky-300 py-2">
-        Memoite
+        <span className="text-sky-500 text-base lg:text-2xl">M</span>emo
+        <span className="text-sky-500 text-base lg:text-2xl">I</span>t
       </h2>
 
       <SearchBar
