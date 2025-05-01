@@ -11,6 +11,8 @@ const { authenticateToken } = require("./utilities");
 const User = require("./models/user.model");
 const Note = require("./models/note.model");
 
+import path from "path";
+
 mongoose
   .connect(config.connectionString)
   .then(() => {
@@ -21,6 +23,7 @@ mongoose
   });
 
 const port = process.env.PORT || 8000;
+const __dirname = path.resolve();
 
 const app = express();
 app.use(express.json());
@@ -304,6 +307,13 @@ app.get("/search-notes/", authenticateToken, async (req, res) => {
     });
   }
 });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
 
 app.listen(port);
 

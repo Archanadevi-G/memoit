@@ -1,6 +1,9 @@
 import axios from "axios";
 import { BASE_URL } from "./constants";
 
+const BASE_URL =
+  import.meta.env.MODE === "development" ? "http://localhost:8000" : "/";
+
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
   timeout: 10000,
