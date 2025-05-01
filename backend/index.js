@@ -6,12 +6,11 @@ const express = require("express");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+const path = require("path");
 
 const { authenticateToken } = require("./utilities");
 const User = require("./models/user.model");
 const Note = require("./models/note.model");
-
-import path from "path";
 
 mongoose
   .connect(config.connectionString)
@@ -23,7 +22,6 @@ mongoose
   });
 
 const port = process.env.PORT || 8000;
-const __dirname = path.resolve();
 
 const app = express();
 app.use(express.json());
