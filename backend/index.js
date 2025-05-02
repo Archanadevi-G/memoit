@@ -28,7 +28,11 @@ app.use(express.json());
 app.use(cors({ origin: "*" }));
 
 app.get("/", (req, res) => {
-  res.json({ data: "hello" });
+  if (!req.session || !req.session.user) {
+    return res.redirect("/login");
+  } else {
+    return res.redirect("/dashboard"); // or whatever your logged-in home is
+  }
 });
 
 // Create Account
